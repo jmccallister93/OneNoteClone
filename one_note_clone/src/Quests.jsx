@@ -1,18 +1,25 @@
 import { PanelMenu } from "primereact/panelmenu";
+import { useState } from "react";
+import { Button } from "primereact/button";
+import NewItem from "./NewItem";
 
 const Quests = () => {
-  const items: object[] = [
+  const [active, setActive] = useState();
+
+  const items = [
     {
       label: "Quests",
       icon: "pi pi-fw pi-book",
       items: [
         {
-          label: "New",
-          icon: "pi pi-fw pi-plus",
+          label: <NewItem />
         },
         {
           label: "Delete",
           icon: "pi pi-fw pi-trash",
+          command: (event) => {
+            console.log("delete item");
+          },
         },
       ],
     },
