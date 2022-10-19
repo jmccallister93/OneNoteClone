@@ -2,6 +2,7 @@ import { PanelMenu } from "primereact/panelmenu";
 import { useState } from "react";
 import { Button } from "primereact/button";
 import NewItem from "./NewItem";
+import RemoveItem from "./RemoveItem";
 
 const Quests = () => {
   const [active, setActive] = useState();
@@ -12,14 +13,10 @@ const Quests = () => {
       icon: "pi pi-fw pi-book",
       items: [
         {
-          label: <NewItem />
+          label: <NewItem />,
         },
         {
-          label: "Delete",
-          icon: "pi pi-fw pi-trash",
-          command: (event) => {
-            console.log("delete item");
-          },
+          label: <RemoveItem />,
         },
       ],
     },

@@ -4,6 +4,7 @@ import Locations from "./Locations";
 import NewItem from "./NewItem";
 import NPCs from "./NPCs";
 import Quests from "./Quests";
+import RemoveItem from "./RemoveItem";
 
 const MainGrid = () => {
   return (
