@@ -23,7 +23,7 @@ const RemoveItem = (quest) => {
   
   
 
-  
+  console.log(quest)
 
   
 
@@ -55,7 +55,11 @@ const RemoveItem = (quest) => {
   };
 
   const confirm2 = () => {
-    if(quest['quest'] !== "undefined"){
+    if(quest['quest']['quest'] === null){
+    confirmDialog({
+      message: `No item selected`
+    });
+  } else {
     confirmDialog({
       message: `Do you want to delete ${quest["quest"]["quest"]['name']} ?`,
       header: "Delete Confirmation",
@@ -63,10 +67,6 @@ const RemoveItem = (quest) => {
       acceptClassName: "p-button-danger",
       accept,
       reject,
-    });
-  } else {
-    confirmDialog({
-      message: `No item selected`
     })
   }
 
