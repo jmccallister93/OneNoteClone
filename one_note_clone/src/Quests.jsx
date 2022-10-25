@@ -7,7 +7,7 @@ import RemoveItem from "./RemoveItem";
 const Quests = (quest) => {
   const [active, setActive] = useState();
 
-
+  console.log(quest)
 
   const items = [
     {
@@ -26,7 +26,9 @@ const Quests = (quest) => {
 
   return (
     <>
-      <PanelMenu model={items} quest={quest} />
+      <PanelMenu 
+      model={items} 
+      />
     </>
   );
 };
