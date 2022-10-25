@@ -1,7 +1,7 @@
 const Details = () => {
     return ( 
         <>
-            
+            <p>Here</p>
         </>
      );
 }

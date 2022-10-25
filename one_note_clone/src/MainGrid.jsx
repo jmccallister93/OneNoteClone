@@ -13,21 +13,24 @@ const MainGrid = () => {
 
   return (
     <>
-      <div className="grid mt-3 mx-1 h-auto">
+    <div className="grid">
+      <div className="grid mt-3 mx-1 h-auto col-12">
         <div className="col"><Quests quest = {activeQuest}/></div>
         <div className="col"><Locations/></div>
         <div className="col"><NPCs/></div>
         <div className="col"><Items /></div>
-        
       </div>
-      <div className="grid mt-3 mx-1 h-auto">
+      
+      <div className="grid mt-3 mx-1 h-auto col-8">
         <div className="col"><QuestList onSelected={(value) => setActiveQuest(value)}/></div>
         <div className="col">Location List</div>
         <div className="col">NPC List</div>
         <div className="col">Item List</div>
-        
       </div>
-     
+      <div className="col min-h-full w-3" id="details"><Details/></div>
+      </div>
+      
+      
     </>
   );
 };

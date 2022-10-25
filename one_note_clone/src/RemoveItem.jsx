@@ -8,8 +8,6 @@ import { Toast } from "primereact";
 const RemoveItem = (quest) => {
   const toast = useRef(null);
 
-  console.log(quest)
-
   const handleClick = () => {
     fetch("http://localhost:8000/quests/" + quest["quest"]["quest"]["id"], {
       method: "DELETE",
@@ -44,7 +42,7 @@ const RemoveItem = (quest) => {
     });
   } else {
     confirmDialog({
-      message: `Do you want to delete ${quest["quest"]["quest"]['name']} ?`,
+      message: `Do you want to delete ${quest["quest"]["quest"]['name']}?`,
       header: "Delete Confirmation",
       icon: "pi pi-info-circle",
       acceptClassName: "p-button-danger",

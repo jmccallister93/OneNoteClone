@@ -5,10 +5,6 @@ import NewItem from "./NewItem";
 import RemoveItem from "./RemoveItem";
 
 const Quests = (quest) => {
-  const [active, setActive] = useState();
-
-  console.log(quest)
-
   const items = [
     {
       label: "Quests",
