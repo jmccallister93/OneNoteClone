@@ -3,8 +3,7 @@ import { Dialog } from "primereact/dialog";
 import { Button } from "primereact/button";
 import { Editor } from "primereact/editor";
 import { InputText } from "primereact/inputtext";
-import EditItem from "./EditItem";
-import questData from "./data/db.json";
+
 
 const NewItem = (props) => {
   const [displayBasic, setDisplayBasic] = useState(false);
@@ -31,14 +30,24 @@ const NewItem = (props) => {
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(newObj)
     }).then(() => {
-        console.log("Saved bitch")
+        
     })
+  }
+  const clearForm = (e) => {
+    setTitle("")
+    setText("")
+  }
+
+  const reloadForm = (e) => {
+    window.location.reload()
   }
 
   const renderFooter = (name) => {
     function handleClick() {
       onHide(name);
       saveContent();
+      clearForm();
+      reloadForm();
     }
 
     return (
