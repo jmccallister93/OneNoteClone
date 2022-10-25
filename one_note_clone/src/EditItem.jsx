@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import { Editor } from "primereact/editor";
 import { InputText } from 'primereact/inputtext';
 
-const EditItem = () => {
+const EditItem = (props) => {
   const [text, setText] = useState(
     "<div></div>"
   );
   const [title, setTitle] = useState('');
-    const handleSubmit = (e) => {
-        console.log("submiited")
-    }
+ 
 
   return (
     <div>

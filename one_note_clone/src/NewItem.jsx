@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Dialog } from "primereact/dialog";
 import { Button } from "primereact/button";
+import { Editor } from "primereact/editor";
+import { InputText } from "primereact/inputtext";
 import EditItem from "./EditItem";
+import questData from "./data/db.json";
 
-const NewItem = () => {
+const NewItem = (props) => {
   const [displayBasic, setDisplayBasic] = useState(false);
+  const [items, setItems] = useState([]);
+  const [text, setText] = useState("<div></div>");
+  const [title, setTitle] = useState("");
 
   const onHide = (name) => {
     dialogFuncMap[`${name}`](false);
@@ -18,11 +24,21 @@ const NewItem = () => {
     dialogFuncMap[`${name}`](true);
   };
 
+  const saveContent = (e) => {
+    const newObj = {name:title, detail:text}
+    fetch('http://localhost:8000/quests', {
+        method: 'POST',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(newObj)
+    }).then(() => {
+        console.log("Saved bitch")
+    })
+  }
+
   const renderFooter = (name) => {
-    const saveContent = () => {console.log('saved')}
-    function handleClick() { 
-        onHide(name);
-        saveContent();
+    function handleClick() {
+      onHide(name);
+      saveContent();
     }
 
     return (
@@ -43,8 +59,6 @@ const NewItem = () => {
     );
   };
 
-  
-
   return (
     <div className="dialog-demo">
       <div className="card">
@@ -60,7 +74,19 @@ const NewItem = () => {
           footer={renderFooter("displayBasic")}
           onHide={() => onHide("displayBasic")}
         >
-          <EditItem />
+          <div className="card">
+            <h5>Quest Item: Title</h5>
+            <InputText
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+            <h5>Quest Item: Description</h5>
+            <Editor
+              style={{ height: "320px" }}
+              value={text}
+              onTextChange={(e) => setText(e.textValue)}
+            />
+          </div>
         </Dialog>
       </div>
     </div>
