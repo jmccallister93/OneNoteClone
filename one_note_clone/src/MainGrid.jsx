@@ -10,6 +10,7 @@ import RemoveItem from "./RemoveItem";
 
 const MainGrid = () => {
   const [activeQuest, setActiveQuest] = useState();
+  
 
   return (
     <>
@@ -20,14 +21,13 @@ const MainGrid = () => {
         <div className="col"><NPCs/></div>
         <div className="col"><Items /></div>
       </div>
-      
       <div className="grid mt-3 mx-1 h-auto col-8">
         <div className="col"><QuestList onSelected={(value) => setActiveQuest(value)}/></div>
         <div className="col">Location List</div>
         <div className="col">NPC List</div>
         <div className="col">Item List</div>
       </div>
-      <div className="col min-h-full w-3" id="details"><Details/></div>
+      <div className="col max-h-full w-3" id="details"><Details quest={activeQuest}/></div>
       </div>
       
       
