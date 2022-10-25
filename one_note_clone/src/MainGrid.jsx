@@ -10,7 +10,6 @@ import RemoveItem from "./RemoveItem";
 
 const MainGrid = () => {
   const [activeQuest, setActiveQuest] = useState();
-  console.log(activeQuest)
 
   return (
     <>

@@ -7,17 +7,13 @@ const QuestList = ({onSelected}) => {
 
   const {data: quests} = useFetch('http://localhost:8000/quests')
 
-  const passSelected = (e)=> onSelected(selectedQuest)
+  const passSelected = (value)=> onSelected(value)
 
   const selectorHandle = (e) => {
     setSelectedQuest(e.value)
-    passSelected()
+    passSelected(e.value)
    
   }
-
-  
-
-  // console.log(selectedQuest)
 
   return (
     <div className="card">

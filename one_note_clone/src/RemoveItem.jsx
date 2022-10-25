@@ -6,16 +6,19 @@ import { Toast } from "primereact";
 import useFetch from "./useFetch";
 import { useParams } from "react-router-dom"
 
-const RemoveItem = () => {
-  const [visible, setVisible] = useState(false);
+const RemoveItem = (quest) => {
+  const [activeQuest, setActiveQuest] = useState()
   const { id }= useParams();
-  const {data: quests} = useFetch('http://localhost:8000/quests/' + id)
-  
+  const {data} = useFetch('http://localhost:8000/quests/')
+
+  const activeID = quest['quest']['quest']['id']
+
+  console.log(activeID)
   
   const toast = useRef(null);
 
   const handleClick = () => {
-    fetch('http://localhost:8000/quests/' + quests.id, {
+    fetch('http://localhost:8000/quests/' + data.id, {
       method: 'DELETE'
     })
   }
@@ -27,7 +30,7 @@ const RemoveItem = () => {
       detail: "You have deleted" + id,
       life: 3000,
     });
-    handleClick();
+    // handleClick();
   };
 
   const reject = () => {

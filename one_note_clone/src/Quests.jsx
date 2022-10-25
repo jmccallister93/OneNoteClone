@@ -4,10 +4,10 @@ import { Button } from "primereact/button";
 import NewItem from "./NewItem";
 import RemoveItem from "./RemoveItem";
 
-const Quests = (activeQuest) => {
+const Quests = (quest) => {
   const [active, setActive] = useState();
 
-  console.log(activeQuest)
+
 
   const items = [
     {
@@ -18,7 +18,7 @@ const Quests = (activeQuest) => {
           label: <NewItem />,
         },
         {
-          label: <RemoveItem />,
+          label: <RemoveItem quest={quest}/>,
         },
       ],
     },
@@ -26,7 +26,7 @@ const Quests = (activeQuest) => {
 
   return (
     <>
-      <PanelMenu model={items} />
+      <PanelMenu model={items} quest={quest} />
     </>
   );
 };
