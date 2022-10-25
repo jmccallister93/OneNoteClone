@@ -3,22 +3,24 @@ import { Editor } from "primereact/editor";
 import { InputText } from 'primereact/inputtext';
 
 const EditItem = () => {
-  const [text1, setText1] = useState(
+  const [text, setText] = useState(
     "<div></div>"
   );
-  const [value1, setValue1] = useState('');
-
+  const [title, setTitle] = useState('');
+    const handleSubmit = (e) => {
+        console.log("submiited")
+    }
 
   return (
     <div>
       <div className="card">
         <h5>Quest Item: Title</h5>
-        <InputText value={value1} onChange={(e) => setValue1(e.target.value)} />
+        <InputText value={title} onChange={(e) => setTitle(e.target.value)} />
         <h5>Quest Item: Description</h5>
         <Editor
           style={{ height: "320px" }}
-          value={text1}
-          onTextChange={(e) => setText1(e.htmlValue)}
+          value={text}
+          onTextChange={(e) => setText(e.htmlValue)}
         />
       </div>
     </div>

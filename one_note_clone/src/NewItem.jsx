@@ -19,6 +19,12 @@ const NewItem = () => {
   };
 
   const renderFooter = (name) => {
+    const saveContent = () => {console.log('saved')}
+    function handleClick() { 
+        onHide(name);
+        saveContent();
+    }
+
     return (
       <div>
         <Button
@@ -30,12 +36,14 @@ const NewItem = () => {
         <Button
           label="Save"
           icon="pi pi-check"
-          onClick={() => onHide(name)}
+          onClick={handleClick}
           autoFocus
         />
       </div>
     );
   };
+
+  
 
   return (
     <div className="dialog-demo">
