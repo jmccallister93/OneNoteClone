@@ -4,8 +4,10 @@ import { Button } from "primereact/button";
 import NewItem from "./NewItem";
 import RemoveItem from "./RemoveItem";
 
-const Quests = () => {
+const Quests = (activeQuest) => {
   const [active, setActive] = useState();
+
+  console.log(activeQuest)
 
   const items = [
     {

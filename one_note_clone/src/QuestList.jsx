@@ -2,10 +2,22 @@ import React, { useState } from "react";
 import { ListBox } from "primereact/listbox";
 import useFetch from "./useFetch";
 
-const QuestList = () => {
+const QuestList = ({onSelected}) => {
   const [selectedQuest, setSelectedQuest] = useState(null);
 
   const {data: quests} = useFetch('http://localhost:8000/quests')
+
+  const passSelected = (e)=> onSelected(selectedQuest)
+
+  const selectorHandle = (e) => {
+    setSelectedQuest(e.value)
+    passSelected()
+   
+  }
+
+  
+
+  // console.log(selectedQuest)
 
   return (
     <div className="card">
@@ -13,10 +25,12 @@ const QuestList = () => {
       <ListBox
         value={selectedQuest}
         options={quests}
-        onChange={(e) => setSelectedQuest(e.value)}
+        onChange={selectorHandle}
         optionLabel="name"
         style={{ width: "15rem" }}
+        
       />
+      {/* <input type="text" onChange={test} /> */}
     </div>
   );
 };

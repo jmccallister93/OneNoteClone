@@ -3,18 +3,31 @@ import { confirmDialog } from "primereact/confirmdialog";
 import { useRef, useState } from "react";
 import { ConfirmDialog } from "primereact/confirmdialog";
 import { Toast } from "primereact";
+import useFetch from "./useFetch";
+import { useParams } from "react-router-dom"
 
 const RemoveItem = () => {
   const [visible, setVisible] = useState(false);
+  const { id }= useParams();
+  const {data: quests} = useFetch('http://localhost:8000/quests/' + id)
+  
+  
   const toast = useRef(null);
 
+  const handleClick = () => {
+    fetch('http://localhost:8000/quests/' + quests.id, {
+      method: 'DELETE'
+    })
+  }
+  
   const accept = () => {
     toast.current.show({
       severity: "info",
       summary: "Confirmed",
-      detail: "You have accepted",
+      detail: "You have deleted" + id,
       life: 3000,
     });
+    handleClick();
   };
 
   const reject = () => {
@@ -37,6 +50,8 @@ const RemoveItem = () => {
     });
   };
 
+  
+
   return (
     <div>
       <Toast ref={toast} />
@@ -48,6 +63,7 @@ const RemoveItem = () => {
           icon="pi pi-times"
           label="Delete"
           className="p-button-danger"
+          
         ></Button>
       </div>
     </div>
