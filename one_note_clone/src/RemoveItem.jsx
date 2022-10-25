@@ -3,29 +3,12 @@ import { confirmDialog } from "primereact/confirmdialog";
 import { useRef, useState } from "react";
 import { ConfirmDialog } from "primereact/confirmdialog";
 import { Toast } from "primereact";
-import useFetch from "./useFetch";
-import { useParams } from "react-router-dom";
+
 
 const RemoveItem = (quest) => {
-  const [activeQuest, setActiveQuest] = useState();
   const toast = useRef(null);
-  const { id } = useParams();
-  const { data } = useFetch("http://localhost:8000/quests/");
-
-  
-
-  // if (quest["quest"]['quest'] === undefined) {
-  //   console.log('quest is null')
-  // } else {
-  //   console.log(quest)
-  //   // console.log(quest["quest"]["quest"]["id"])
-  // }
-  
-  
 
   console.log(quest)
-
-  
 
   const handleClick = () => {
     fetch("http://localhost:8000/quests/" + quest["quest"]["quest"]["id"], {
@@ -55,7 +38,7 @@ const RemoveItem = (quest) => {
   };
 
   const confirm2 = () => {
-    if(quest['quest']['quest'] === null){
+    if(quest['quest']['quest'] === null || quest['quest']['quest'] === undefined){
     confirmDialog({
       message: `No item selected`
     });
