@@ -10,13 +10,22 @@ import QuestList from "./QuestList";
 import Quests from "./Quests";
 
 const MainGrid = () => {
-  const [activeQuest, setActiveQuest] = useState();
-  const [activeLocation, setActiveLocation] = useState();
-  const [activeNpc, setActiveNpc] = useState();
-  const [activeItem, setActiveItem] = useState();
   const [activeObj, setActiveObj] = useState();
+  const [arrayObjs, setArrayObjs] = useState([]);
 
-  // console.log(activeItem, activeLocation, activeNpc, activeQuest)
+  const onSelectHandler = (value) => {
+    setActiveObj(value);
+    if (value === null || value === undefined) {
+      //pass
+    } else if( arrayObjs.includes(value) ){
+      setArrayObjs((prevArray) => prevArray.filter((value) => console.log('value')))
+    }
+    else {
+      setArrayObjs((prevArray) => [...prevArray, value]);
+    }
+  };
+
+  // console.log(arrayObjs)
 
   return (
     <>
@@ -37,16 +46,16 @@ const MainGrid = () => {
         </div>
         <div className="grid mt-3 mx-1 h-auto col-8">
           <div className="col">
-            <QuestList onSelected={(value) => setActiveObj(value)} />
+            <QuestList onSelected={onSelectHandler} />
           </div>
           <div className="col">
-            <LocationList onSelected={(value) => setActiveObj(value)} />
+            <LocationList onSelected={onSelectHandler} />
           </div>
           <div className="col">
-            <NPCList onSelected={(value) => setActiveObj(value)} />
+            <NPCList onSelected={onSelectHandler} />
           </div>
           <div className="col">
-            <ItemList onSelected={(value) => setActiveObj(value)} />
+            <ItemList onSelected={onSelectHandler} />
           </div>
         </div>
         <div className="col max-h-full w-3" id="details">

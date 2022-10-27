@@ -24,6 +24,7 @@ const QuestList = ({onSelected}) => {
         onChange={selectorHandle}
         optionLabel="name"
         style={{ width: "15rem" }}
+        metaKeySelection={false}
       />
     </div>
   );

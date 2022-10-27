@@ -5,7 +5,7 @@ const Navbar = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const items: object[] = [
-    { label: "Overview", icon: "pi pi-fw pi-home" },
+    { label: "All", icon: "pi pi-fw pi-home" },
     { label: "Quests", icon: "pi pi-fw pi-book" },
     { label: "Locations", icon: "pi pi-fw pi-globe" },
     { label: "NPC's", icon: "pi pi-fw pi-user" },
