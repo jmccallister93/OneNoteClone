@@ -19,11 +19,42 @@
       "name": "Run through forest",
       "detail": "Need to run through the forest\n",
       "id": "A5QEzeM"
+    }
+  ],
+  "items": [
+    {
+      "name": "Item name",
+      "details": "item details",
+      "id": "i1"
     },
     {
-      "name": "te",
-      "detail": "te\n",
-      "id": "ok0q_0G"
+      "name": "reg",
+      "detail": "ref\n",
+      "id": "N0OhVqu"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Location name",
+      "details": "Location details",
+      "id": "l1"
+    },
+    {
+      "name": "Test",
+      "detail": "Test\n",
+      "id": "ymrTF5N"
+    }
+  ],
+  "NPCs": [
+    {
+      "name": "NPC name",
+      "details": "NPC details",
+      "id": "n1"
+    },
+    {
+      "name": "Testing",
+      "detail": "testing\n",
+      "id": "SvV7AA7"
     }
   ]
 }

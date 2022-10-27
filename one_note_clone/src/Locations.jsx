@@ -1,18 +1,18 @@
 import { PanelMenu } from "primereact/panelmenu";
-import NewQuest from "./NewQuest";
-import RemoveQuest from "./RemoveQuest";
+import RemoveItem from "./RemoveQuest";
+import NewLocation from "./NewLocation";
 
-const Quests = (quest) => {
+const Locations = (location) => {
   const items = [
     {
-      label: "Quests",
+      label: "Locations",
       icon: "pi pi-fw pi-book",
       items: [
         {
-          label: <NewQuest />,
+          label: <NewLocation />,
         },
         {
-          label: <RemoveQuest quest={quest}/>,
+          label: <RemoveItem location={location}/>,
         },
       ],
     },
@@ -27,4 +27,4 @@ const Quests = (quest) => {
   );
 };
 
-export default Quests;
+export default Locations;

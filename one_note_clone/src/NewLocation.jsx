@@ -5,7 +5,7 @@ import { Editor } from "primereact/editor";
 import { InputText } from "primereact/inputtext";
 
 
-const NewItem = (props) => {
+const NewLocation = (props) => {
   const [displayBasic, setDisplayBasic] = useState(false);
   const [items, setItems] = useState([]);
   const [text, setText] = useState("<div></div>");
@@ -25,7 +25,7 @@ const NewItem = (props) => {
 
   const saveContent = (e) => {
     const newObj = {name:title, detail:text}
-    fetch('http://localhost:8000/items', {
+    fetch('http://localhost:8000/locations', {
         method: 'POST',
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(newObj)
@@ -77,19 +77,19 @@ const NewItem = (props) => {
           onClick={() => onClick("displayBasic")}
         />
         <Dialog
-          header="Add New Item"
+          header="Add New Location Item"
           visible={displayBasic}
           style={{ width: "50vw" }}
           footer={renderFooter("displayBasic")}
           onHide={() => onHide("displayBasic")}
         >
           <div className="card">
-            <h5>Item: Title</h5>
+            <h5>Location: Title</h5>
             <InputText
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
-            <h5>Item: Description</h5>
+            <h5>Location: Description</h5>
             <Editor
               style={{ height: "320px" }}
               value={text}
@@ -102,4 +102,4 @@ const NewItem = (props) => {
   );
 };
 
-export default NewItem;
+export default NewLocation;

@@ -5,7 +5,7 @@ import { ConfirmDialog } from "primereact/confirmdialog";
 import { Toast } from "primereact";
 
 
-const RemoveItem = (quest) => {
+const RemoveQuest = (quest) => {
   const toast = useRef(null);
 
   const handleClick = () => {
@@ -70,4 +70,4 @@ const RemoveItem = (quest) => {
   );
 };
 
-export default RemoveItem;
+export default RemoveQuest;
