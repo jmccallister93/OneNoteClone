@@ -3,14 +3,14 @@ import { ListBox } from "primereact/listbox";
 import useFetch from "./useFetch";
 
 const NPCList = ({onSelected}) => {
-  const [selectedNPC, setSelectedNPC] = useState(null);
+  const [selectedNpc, setSelectedNpc] = useState(null);
 
-  const {data: NPCs} = useFetch('http://localhost:8000/NPCs')
+  const {data: npcs} = useFetch('http://localhost:8000/npcs')
 
   const passSelected = (value)=> onSelected(value)
 
   const selectorHandle = (e) => {
-    setSelectedNPC(e.value)
+    setSelectedNpc(e.value)
     passSelected(e.value)
    
   }
@@ -19,8 +19,8 @@ const NPCList = ({onSelected}) => {
     <div className="card">
       <h3>NPC's</h3>
       <ListBox
-        value={selectedNPC}
-        options={NPCs}
+        value={selectedNpc}
+        options={npcs}
         onChange={selectorHandle}
         optionLabel="name"
         style={{ width: "15rem" }}

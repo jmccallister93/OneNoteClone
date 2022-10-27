@@ -2,7 +2,7 @@ import { PanelMenu } from "primereact/panelmenu";
 import NewNPC from "./NewNPC";
 import RemoveNPC from "./RemoveNPC";
 
-const NPCs = (NPC) => {
+const NPCs = (npc) => {
   const items = [
     {
       label: "NPC's",
@@ -13,7 +13,7 @@ const NPCs = (NPC) => {
           
         },
         {
-          label: <RemoveNPC NPC={NPC}/>,
+          label: <RemoveNPC npc={npc}/>,
         },
       ],
     },

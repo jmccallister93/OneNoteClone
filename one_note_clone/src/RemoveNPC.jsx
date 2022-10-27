@@ -5,11 +5,11 @@ import { ConfirmDialog } from "primereact/confirmdialog";
 import { Toast } from "primereact";
 
 
-const RemoveNPC = (NPC) => {
+const RemoveNPC = (npc) => {
   const toast = useRef(null);
 
   const handleClick = () => {
-    fetch("http://localhost:8000/NPCs/" + NPC["NPC"]["NPC"]["id"], {
+    fetch("http://localhost:8000/NPCs/" + npc["npc"]["npc"]["id"], {
       method: "DELETE",
     }).then(
       window.location.reload()
@@ -20,7 +20,7 @@ const RemoveNPC = (NPC) => {
     toast.current.show({
       severity: "info",
       summary: "Confirmed",
-      detail: `You have deleted ${NPC["NPC"]["NPC"]['name']}`,
+      detail: `You have deleted ${npc["npc"]["npc"]['name']}`,
       life: 3000,
     });
       handleClick();
@@ -36,13 +36,13 @@ const RemoveNPC = (NPC) => {
   };
 
   const confirm2 = () => {
-    if(NPC['NPC']['NPC'] === null || NPC['NPC']['NPC'] === undefined){
+    if(npc['npc']['npc'] === null || npc['npc']['npc'] === undefined){
     confirmDialog({
       message: `No item selected`
     });
   } else {
     confirmDialog({
-      message: `Do you want to delete ${NPC["NPC"]["NPC"]['name']}?`,
+      message: `Do you want to delete ${npc["npc"]["npc"]['name']}?`,
       header: "Delete Confirmation",
       icon: "pi pi-info-circle",
       acceptClassName: "p-button-danger",
