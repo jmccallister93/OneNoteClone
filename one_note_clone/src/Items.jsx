@@ -1,5 +1,5 @@
 import { PanelMenu } from "primereact/panelmenu";
-import RemoveItem from "./RemoveQuest";
+import RemoveItem from "./RemoveItem";
 import NewItem from "./NewItem";
 
 const Items = (item) => {

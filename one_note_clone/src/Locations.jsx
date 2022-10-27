@@ -1,6 +1,6 @@
 import { PanelMenu } from "primereact/panelmenu";
-import RemoveItem from "./RemoveQuest";
 import NewLocation from "./NewLocation";
+import RemoveLocation from "./RemoveLocation";
 
 const Locations = (location) => {
   const items = [
@@ -12,7 +12,7 @@ const Locations = (location) => {
           label: <NewLocation />,
         },
         {
-          label: <RemoveItem location={location}/>,
+          label: <RemoveLocation location={location}/>,
         },
       ],
     },

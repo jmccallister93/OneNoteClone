@@ -1,6 +1,6 @@
 import { PanelMenu } from "primereact/panelmenu";
-import RemoveItem from "./RemoveQuest";
 import NewNPC from "./NewNPC";
+import RemoveNPC from "./RemoveNPC";
 
 const NPCs = (NPC) => {
   const items = [
@@ -13,7 +13,7 @@ const NPCs = (NPC) => {
           
         },
         {
-          label: <RemoveItem NPC={NPC}/>,
+          label: <RemoveNPC NPC={NPC}/>,
         },
       ],
     },

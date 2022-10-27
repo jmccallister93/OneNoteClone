@@ -23,9 +23,9 @@ const MainGrid = () => {
     <div className="grid">
       <div className="grid mt-3 mx-1 h-auto col-12">
         <div className="col"><Quests quest = {activeQuest}/></div>
-        <div className="col"><Locations/></div>
-        <div className="col"><NPCs/></div>
-        <div className="col"><Items /></div>
+        <div className="col"><Locations location = {activeLocation}/></div>
+        <div className="col"><NPCs NPC={activeNPC}/></div>
+        <div className="col"><Items item={activeItem}/></div>
       </div>
       <div className="grid mt-3 mx-1 h-auto col-8">
         <div className="col"><QuestList onSelected={(value) => setActiveQuest(value)}/></div>
